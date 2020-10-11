@@ -49,5 +49,7 @@ int main(void) {
         emp[i].Display();
         cout << '\n';
     }
+    // Pause the window
+    system("pause");
     return 0;
 }

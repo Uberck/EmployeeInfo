@@ -1,23 +1,36 @@
-Enter the details for Employee #1
-Enter the employee number: 100052
-Enter type of employee:
-1-Laborer
-2-Secetary
-3-Manager
-4-Accountant
-5-Executive
-6-Researcher
-: 4
-Enter hire date below::
-Enter Day: 10
-Enter Month: 4
-Enter Year: 1998
-Enter Salary: 200000
-Employee summary:
-Title: Accountant
-Date of Hire:
-10/4/1998
+Enter employee details for Employee #1...
+Employee ID: 101
+Employee Compensation: 52000
+Employee Type: l
+Employee Hire Date: 10/15/2005
 
-C:\dev\CET2300EXAM1\EmployeeInfo\Debug\EmployeeInfo.exe (process 38348) exited with code 0.
-To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
-Press any key to close this window . . .
+Employee #2...
+Employee ID: 102
+Employee Compensation: 85000
+Employee Type: m
+Employee Hire Date: 8/8/2006
+
+Employee #3...
+Employee ID: 103
+Employee Compensation: 95000
+Employee Type: e
+Employee Hire Date: 11/25/2015
+
+
+Employee Details:
+Join date: 10/15/2005
+Employee ID: 101
+Employee Compensation: 52000
+Employee Type: laborer
+
+Join date: 8/8/2006
+Employee ID: 102
+Employee Compensation: 85000
+Employee Type: manager
+
+Join date: 11/25/2015
+Employee ID: 103
+Employee Compensation: 95000
+Employee Type: executive
+
+Press any key to continue . . .

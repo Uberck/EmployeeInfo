@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// Enum eType that can only have some predefined values.
+// Enum eType that can only have some predefined values
 enum eType {
   l = 'l', s = 's', a = 'a', m = 'm', e = 'e', r = 'r'
 };

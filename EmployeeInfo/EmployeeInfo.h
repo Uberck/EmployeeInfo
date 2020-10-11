@@ -1,91 +1,131 @@
-// Employee class array - https://rb.gy/xcceks
+    // Employee class array - https://rb.gy/xcceks
 #include <iostream>
+#include <unordered_map>
+#include <string>
 
 using namespace std;
 
-class Employee {
+    // Enum eType that can only have some predefined values.
+enum eType {
+    l = 'l', s = 's', a = 'a', m = 'm', e = 'e', r = 'r'
+};
+
+    // Unordered map for storing the mapping between enum type and string
+unordered_map < eType, string > mapping;
+
+    // Date class
+class Date {
+
+    // Private date data members
 private:
-    int enumber, day, month, year;
-    float total;
+    int day, month, year;
 
+    // public methods.
 public:
-    int etype;
-    Employee() {
-        day = 0;
-        month = 0;
-        year = 0;
-        etype;
+    Date() {
+
+    }
+    // Parameterized constructor
+    // Takes date as input in the form of a string
+    Date(string date) {
+
+    // Create date
+    // Split date string using a delimeter '/' and store the day, month, year seperatley
+        string delim = "/";
+
+    // Splitting day part
+        int pos = date.find(delim);
+        string token = date.substr(0, pos);
+        date.erase(0, pos + 1);
+        this->day = stoi(token);
+
+    // Splitting month part
+        pos = date.find(delim);
+        token = date.substr(0, pos + 1);
+        date.erase(0, pos + 1);
+        this->month = stoi(token);
+
+    // Remainder year part
+        this->year = stoi(date);
     }
 
-    void months(int m) {
-        month = m;
-        if (month > 12) {
-            year = year + 1;
-            month = month - 12;
-        }
+    // Setter methods to update values
+    // Sets day
+    void setDay(int day) {
+        this->day = day;
     }
 
-    void days(int d) {
-        day = d;
-        if (day > 30) {
-            month = month + 1;
-            day = day - 12;
-        }
+    // Sets month
+    void setMonth(int month) {
+        this->month = month;
     }
 
-    void years(int y) {
-        year = year + y;
+    // Sets year
+    void setYear(int year) {
+        this->year = year;
     }
 
-    // For array implementation
-    /* void entData() {
-        cout << "Enter the employee number: ";
-        cin >> enumber;
-        for (int e = 0; e < enumber; e++) {
-            cout << "Enter type of employee: " << endl;
-            cout << "1-Laborer\n";
-            cout << "2-Secetary\n";
-            cout << "3-Manager\n";
-            cout << "4-Accountant\n";
-            cout << "5-Executive\n";
-            cout << "6-Researcher\n";
-            cout << ": ";
-            cin >> etype;
-
-            cout << "Enter hire date below::" << endl;
-            cout << "Enter Day: ";
-            cin >> day;
-            cout << "Enter Month: ";
-            cin >> month;
-            cout << "Enter Year: ";
-            cin >> year;
-            cout << "Enter Salary: ";
-            cin >> total;
-
-        }
-    } */
-
-    void show(int etype) {
-        cout << "Employee summary: " << endl;
-        if (etype == 1) {
-            cout << "Title: Laborer" << endl;
-        }
-        if (etype == 2) {
-            cout << "Title: Secetry" << endl;
-        }
-        if (etype == 3) {
-            cout << "Title: Manager" << endl;
-        }
-        if (etype == 4) {
-            cout << "Title: Accountant" << endl;
-        }
-        if (etype == 5) {
-            cout << "Title: Executive" << endl;
-        }
-        if (etype == 6) {
-            cout << "Title: Researcher" << endl;
-        }
-        cout << "Date of Hire:" << endl;
-        cout << day << "/" << month << "/" << year << endl;
+    // Sets all three parts of date
+    void setDayMonthYear(int day, int month, int year) {
+        this->day = day;
+        this->month = month;
+        this->year = year;
     }
+
+    // Date display function
+    void displayDate() {
+        cout << this->day << "/" << this->month << "/" << this->year << '\n';
+    }
+};
+
+    // Employee class extends Date class publically.
+class Employee : public Date {
+
+    // Private data members.
+private: int empId;
+       float empComp;
+       eType empType;
+
+    // Public methods
+public: Employee() : Date() {
+
+}
+    // Parameterized constructor
+      Employee(int empId, float empComp, eType empType, string date) : Date(date) {
+          this->empId = empId;
+          this->empComp = empComp;
+          this->empType = empType;
+      }
+
+    // Setter methods to update input values.
+    // Sets the ID
+      void setId(int empId) {
+          this->empId = empId;
+      }
+
+    // Sets compensation
+      void setComp(float empComp) {
+          this->empComp = empComp;
+      }
+
+    // Sets the Employee type
+      void setType(eType empType) {
+          this->empType = empType;
+      }
+
+    // Sets the Employee Dd, Employee compensation, and Employee type
+      void setIdCompType(int empId, float empComp, eType empType) {
+          this->empId = empId;
+          this->empComp = empComp;
+          this->empType = empType;
+      }
+
+    // Method to display array
+      void Display() {
+          cout << "Join date: ";
+          this->displayDate();
+          cout << "Employee ID: " << this->empId << '\n';
+          cout << "Employee Compensation: " << this->empComp << '\n';
+          cout << "Employee Type: " << mapping[this->empType] << '\n';
+      }
 };

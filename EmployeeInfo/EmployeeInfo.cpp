@@ -22,7 +22,7 @@ int main(void) {
     // Array of Employee objects
     Employee emp[3];
 
-    // Take inputs from user and create objects
+    // Take input from user and create appropriate objects
     cout << "Enter employee details for ";
     for (int i = 0; i < 3; i++) {
         cout << "Employee #" << i + 1 << "...";

@@ -45,7 +45,7 @@ public:
         date.erase(0, pos + 1);
         this->month = stoi(token);
 
-    // Remainder year part
+    // Remainder for year part
         this->year = stoi(date);
     }
 
@@ -113,7 +113,7 @@ public: Employee() : Date() {
           this->empType = empType;
       }
 
-    // Sets the Employee Dd, Employee compensation, and Employee type
+    // Sets the Employee ID, Employee compensation, and Employee type
       void setIdCompType(int empId, float empComp, eType empType) {
           this->empId = empId;
           this->empComp = empComp;
